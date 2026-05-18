@@ -62,11 +62,27 @@ document.getElementById('clear').addEventListener('click', async () => {
 
 function canvasPoint(event) {
     const rect = canvas.getBoundingClientRect();
+    const scaleX = canvas.width / rect.width;
+    const scaleY = canvas.height / rect.height;
     return [
-        Math.round(event.clientX - rect.left),
-        Math.round(event.clientY - rect.top)
+        Math.round((event.clientX - rect.left) * scaleX),
+        Math.round((event.clientY - rect.top) * scaleY)
     ];
 }
+
+function fitCanvas() {
+    const rect = canvas.getBoundingClientRect();
+    const w = Math.floor(rect.width);
+    const h = Math.floor(rect.height);
+    if (w > 0 && h > 0 && (canvas.width !== w || canvas.height !== h)) {
+        canvas.width = w;
+        canvas.height = h;
+        canvas2d.render();
+    }
+}
+
+new ResizeObserver(fitCanvas).observe(canvas);
+window.addEventListener('resize', fitCanvas);
 
 canvas.addEventListener('mousedown', (e) => {
     if (mode === 'range') {
