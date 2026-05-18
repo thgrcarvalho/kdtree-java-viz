@@ -2,7 +2,7 @@ package io.github.thgrcarvalho.kdtreeviz.web.dto;
 
 public record NodeDto(
         String id,
-        double[] coords,
+        double[] point,
         int axis,
         int depth,
         double[] min,
