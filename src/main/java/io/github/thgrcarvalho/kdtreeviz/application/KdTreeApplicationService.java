@@ -1,11 +1,12 @@
 package io.github.thgrcarvalho.kdtreeviz.application;
 
 import io.github.thgrcarvalho.kdtree.domain.KDTree;
+import io.github.thgrcarvalho.kdtree.domain.NearestTrace;
+import io.github.thgrcarvalho.kdtree.domain.QueryTrace;
 import io.github.thgrcarvalho.kdtreeviz.domain.KDTreeNotFoundException;
 import io.github.thgrcarvalho.kdtreeviz.domain.KDTreeRepository;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
 import java.util.UUID;
 
 @Service
@@ -33,12 +34,12 @@ public class KdTreeApplicationService {
         return repository.save(kdTree);
     }
 
-    public double[] nearest(String id, double[] query) {
-        return getKDTree(id).nearest(query);
+    public NearestTrace nearestTraced(String id, double[] query) {
+        return getKDTree(id).nearestTraced(query);
     }
 
-    public List<double[]> rangeSearch(String id, double[] min, double[] max) {
-        return getKDTree(id).rangeSearch(min, max);
+    public QueryTrace rangeSearchTraced(String id, double[] min, double[] max) {
+        return getKDTree(id).rangeSearchTraced(min, max);
     }
 
     public void deleteKDTree(String id) {

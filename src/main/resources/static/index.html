@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>kdtree4j-viz</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<header class="toolbar">
+    <h1>kdtree4j-viz</h1>
+    <div class="modes">
+        <button data-mode="insert" class="mode active">Insert</button>
+        <button data-mode="nearest" class="mode">Nearest</button>
+        <button data-mode="range" class="mode">Range</button>
+    </div>
+    <button id="clear">Clear</button>
+    <span id="status" class="status"></span>
+</header>
+
+<main class="layout">
+    <section class="canvas-wrap">
+        <canvas id="canvas" width="600" height="500"></canvas>
+        <p class="hint" id="hint">Click to insert a point.</p>
+    </section>
+    <aside class="tree-pane">
+        <h2>Tree structure</h2>
+        <div id="tree"></div>
+    </aside>
+</main>
+
+<footer class="trace-log">
+    <h2>Trace</h2>
+    <ol id="trace"></ol>
+</footer>
+
+<script type="module" src="/js/app.js"></script>
+</body>
+</html>
