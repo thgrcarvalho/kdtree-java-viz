@@ -8,7 +8,7 @@ body {
     background: #0f1419;
     color: #e8e8e8;
     display: grid;
-    grid-template-rows: auto 1fr auto;
+    grid-template-rows: auto 1fr 200px;
     overflow: hidden;
 }
 
@@ -134,8 +134,8 @@ canvas {
     background: #1a1f2e;
     border-top: 1px solid #2a3142;
     padding: 0.75rem 1rem;
-    max-height: 180px;
     overflow: auto;
+    min-height: 0;
 }
 
 #trace {
